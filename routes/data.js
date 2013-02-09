@@ -15,6 +15,7 @@ MongoClient.connect(mongoURL, function(err, db) {
 
   // Empty the collection for debugging
   collection.remove(function(err) {
+    db.close();
     if (err) throw err;
   });
 });
@@ -35,6 +36,7 @@ exports.createRoom = function(req, res, next) {
     // console.dir(doc);
 
     collection.insert(doc, {w:1}, function(err, result) {
+      db.close();
       if (err) {
         console.dir(err);
       }

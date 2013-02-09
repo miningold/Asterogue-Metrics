@@ -32,7 +32,6 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/users', user.list);
 
 app.post('/level', data.createRoom);
 
