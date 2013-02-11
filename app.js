@@ -9,7 +9,7 @@ var express = require('express'),
 
     routes = require('./routes'),
     user = require('./routes/user'),
-    data = require('./routes/data');
+    Level = require('./routes/data').Level;
 
 var app = express();
 
@@ -33,7 +33,23 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 
-app.post('/level', data.createRoom);
+app.post('/level', function(req, res) {
+  Level.create(req.body, function(err, result) {
+    if (err) {
+      throw err;
+    }
+    res.send(201, result);
+  });
+});
+
+app.get('/level', function(req, res) {
+  Level.readAll(function(err, result) {
+    if (err) {
+      throw err;
+    }
+    res.send(result);
+  });
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

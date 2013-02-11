@@ -1,47 +1,55 @@
 var _ = require('lodash'),
-    ObjectID = require('mongodb').ObjectID,
     MongoClient = require('mongodb').MongoClient,
-    port = process.env.MONGO_PORT || 27017;
-    mongoURL = 'mongodb://asterogue:Wreckursion@localhost:' + port + '/asterogue';
+    port = process.env.MONGO_PORT || 27017,
+    mongoURL = 'mongodb://asterogue:Wreckursion@localhost:' + port + '/asterogue',
+    connect,
+    Level;
 
-MongoClient.connect(mongoURL, function(err, db) {
-  var collection;
+Level = exports.Level = {};
 
-  if (err) {
-    throw err;
-  }
+connect = function(callback) {
+  MongoClient.connect(mongoURL, function(err, db) {
+    if (err) {
+      throw err;
+    }
 
-  collection = db.collection('level');
+    callback(db);
+  });
+};
 
-  // Empty the collection for debugging
+connect(function(db) {
+  var collection = db.collection('level');
+
   collection.remove(function(err) {
     db.close();
-    if (err) throw err;
+
+    if (err) {
+      throw err;
+    }
   });
 });
 
-exports.createRoom = function(req, res, next) {
-  MongoClient.connect(mongoURL, function(err, db) {
-    var doc;
 
-    if (err) {
-      console.dir(err);
-      return next(err);
-    }
+Level.create = function(body, next) {
+  connect(function(db) {
+    var collection = db.collection('level');
 
-    doc = req.body;
-
-    collection = db.collection('level');
-
-    // console.dir(doc);
-
-    collection.insert(doc, {w:1}, function(err, result) {
+    collection.insert(body, {w:1}, function(err, result) {
       db.close();
-      if (err) {
-        console.dir(err);
-      }
 
-      res.send(201, result[0]);
+      next(err, result);
+    });
+  });
+};
+
+Level.readAll = function(next) {
+  connect(function(db) {
+    var collection = db.collection('level');
+
+    collection.find().toArray(function(err, result) {
+      db.close();
+
+      next(err, result);
     });
   });
 };
