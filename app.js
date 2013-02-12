@@ -10,23 +10,7 @@ var http = require('http'),
 
     routes = require('./routes'),
 
-    Data = require('./routes/data'),
-    validateCollection;
-
-validateCollection = function(req, res, next) {
-  var whitelist = [
-    'level'
-  ];
-  var collection = req.params.collection;
-
-  if (_.contains(whitelist, collection)) {
-    return next();
-  } else {
-    var err = new Error('Collection not allowed');
-    err.status = 409;
-    return next(err);
-  }
-};
+    Data = require('./routes/data');
 
 app.configure(function(){
   app.set('port', 24685);
@@ -50,8 +34,17 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 
-app.post('/api/:collection', auth, validateCollection, function(req, res) {
-  Data.create(req.params.collection, req.body, function(err, result) {
+app.post('/api/:collection', auth, function(req, res, next) {
+  var collection = req.params.collection,
+      err;
+
+  if (!_.contains(Data.whitelist, collection)) {
+    err = new Error('Collection ' + collection + ' not allowed');
+    err.status = 409;
+    return next(err);
+  }
+
+  Data.create(collection, req.body, function(err, result) {
     if (err) {
       throw err;
     }
@@ -59,7 +52,16 @@ app.post('/api/:collection', auth, validateCollection, function(req, res) {
   });
 });
 
-app.get('/api/:collection', validateCollection, function(req, res) {
+app.get('/api/:collection', function(req, res, next) {
+  var collection = req.params.collection,
+      err;
+
+  if (!_.contains(Data.whitelist, collection)) {
+    err = new Error('Collection "' + collection + '" not found.');
+    err.status = 404;
+    return next(err);
+  }
+
   Data.readAll(req.params.collection, function(err, result) {
     if (err) {
       throw err;

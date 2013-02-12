@@ -26,6 +26,10 @@ connect(function(db) {
   });
 });
 
+exports.whitelist = [
+  'level'
+];
+
 exports.create = function(collectionName, body, next) {
   connect(function(db) {
     var collection = db.collection(collectionName);
