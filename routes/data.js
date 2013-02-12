@@ -2,10 +2,7 @@ var _ = require('lodash'),
     MongoClient = require('mongodb').MongoClient,
     port = process.env.MONGO_PORT || 27017,
     mongoURL = 'mongodb://asterogue:Wreckursion@localhost:' + port + '/asterogue',
-    connect,
-    Level;
-
-Level = exports.Level = {};
+    connect;
 
 connect = function(callback) {
   MongoClient.connect(mongoURL, function(err, db) {
@@ -29,10 +26,9 @@ connect(function(db) {
   });
 });
 
-
-Level.create = function(body, next) {
+exports.create = function(collectionName, body, next) {
   connect(function(db) {
-    var collection = db.collection('level');
+    var collection = db.collection(collectionName);
 
     collection.insert(body, {w:1}, function(err, result) {
       db.close();
@@ -42,9 +38,9 @@ Level.create = function(body, next) {
   });
 };
 
-Level.readAll = function(next) {
+exports.readAll = function(collectionName, next) {
   connect(function(db) {
-    var collection = db.collection('level');
+    var collection = db.collection(collectionName);
 
     collection.find().toArray(function(err, result) {
       db.close();
