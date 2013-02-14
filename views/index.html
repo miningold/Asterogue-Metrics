@@ -2,10 +2,27 @@
 <html>
   <head>
     <title>{{ title }}</title>
+    <link rel='stylesheet' href='/css/nv.d3.css' />
     <link rel='stylesheet' href='/css/style.css' />
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/lodash.js"></script>
+    <script src="/js/d3.v2.js"></script>
+    <script src="/js/nv.d3.js"></script>
+    <script src="/js/main.js"></script>
+
+    <style>
+
+      #chart svg {
+        height: 400px;
+      }
+
+    </style>
   </head>
   <body>
     <h1>{{ title }}</h1>
-    <p>Welcome to {{ title }}</p>
+    <div id="chart">
+      <svg></svg>
+    </div>
   </body>
 </html>
