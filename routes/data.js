@@ -68,7 +68,8 @@ connect = function(callback) {
 // });
 
 exports.whitelist = [
-  'floor'
+  'floor',
+  'population'
 ];
 
 exports.create = function(collectionName, body, next) {
