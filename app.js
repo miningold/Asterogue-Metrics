@@ -32,6 +32,7 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+
 app.get('/', routes.index);
 
 app.post('/api/:collection', auth, function(req, res, next) {
@@ -55,6 +56,9 @@ app.post('/api/:collection', auth, function(req, res, next) {
 app.get('/api/:collection', function(req, res, next) {
   var collection = req.params.collection,
       err;
+
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
 
   if (!_.contains(Data.whitelist, collection)) {
     err = new Error('Collection "' + collection + '" not found.');
