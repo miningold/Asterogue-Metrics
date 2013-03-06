@@ -3,7 +3,7 @@
   <head>
     <title>{{ title }}</title>
     <link rel='stylesheet' href='/css/nv.d3.css' />
-    <link rel='stylesheet' href='/css/style.css' />
+    <!-- <link rel='stylesheet' href='/css/style.css' /> -->
 
     <script src="/js/jquery.js"></script>
     <script src="/js/lodash.js"></script>
@@ -17,6 +17,14 @@
         height: 400px;
       }
 
+      #rooms svg {
+        width: auto;
+        height: auto;
+        display: inline;
+        border: 1px solid red;
+        margin-right: 10px;
+      }
+
     </style>
   </head>
   <body>
@@ -24,17 +32,6 @@
     <div id="chart">
       <svg></svg>
     </div>
-    <div id="population0">
-      <svg></svg>
-    </div>
-    <div id="population1">
-      <svg></svg>
-    </div>
-    <div id="population2">
-      <svg></svg>
-    </div>
-    <div id="population3">
-      <svg></svg>
-    </div>
+    <div id="rooms"></div>
   </body>
 </html>
