@@ -69,6 +69,7 @@ connect = function(callback) {
 
 exports.whitelist = [
   'floor',
+  'floor-complete',
   'population'
 ];
 
