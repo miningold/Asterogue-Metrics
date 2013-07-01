@@ -68,9 +68,7 @@ connect = function(callback) {
 // });
 
 exports.whitelist = [
-  'floor',
-  'floor-complete',
-  'population'
+  'session'
 ];
 
 exports.create = function(collectionName, body, next) {
