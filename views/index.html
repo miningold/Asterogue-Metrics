@@ -2,36 +2,13 @@
 <html>
   <head>
     <title>{{ title }}</title>
-    <link rel='stylesheet' href='/css/nv.d3.css' />
-    <!-- <link rel='stylesheet' href='/css/style.css' /> -->
-
-    <script src="/js/jquery.js"></script>
-    <script src="/js/lodash.js"></script>
-    <script src="/js/d3.v2.js"></script>
-    <script src="/js/nv.d3.js"></script>
-    <script src="/js/main.js"></script>
-
-    <style>
-
-      #chart svg {
-        height: 400px;
-      }
-
-      #rooms svg {
-        width: auto;
-        height: auto;
-        display: inline;
-        border: 1px solid red;
-        margin-right: 10px;
-      }
-
-    </style>
+    <link rel='stylesheet' href='/css/style.css' />
   </head>
   <body>
-    <h1>{{ title }}</h1>
-    <div id="chart">
-      <svg></svg>
-    </div>
-    <div id="rooms"></div>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/lodash.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="/js/box.js"></script>
+    <script src="/js/main.js"></script>
   </body>
 </html>

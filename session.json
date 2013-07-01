@@ -1,0 +1,516 @@
+[
+  {
+    "uniqueId": "da232d50-4d4c-4dbe-ad43-40c45390344d",
+    "depth": 1,
+    "currentScrap": 20,
+    "playerHealth": 0,
+    "bestCombo": 10,
+    "timePlayed": 10.8035221099854,
+    "enemiesBeaten": 3,
+    "favoriteModule": {
+      "damage": 70,
+      "cooldown": 3,
+      "uses": 6,
+      "modifierTypes": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "modifierRanks": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "moduleType": 1,
+      "rank": 1,
+      "rarity": 0,
+      "tier": 1,
+      "name": "EZ Kill Blaster",
+      "powerValue": 0,
+      "id": 10,
+      "stashed": true
+    },
+    "favoriteCount": 2.83333349227905,
+    "weaponFavor": {
+      "10": 2.83333349227905,
+      "11": 1
+    },
+    "raidMode": true,
+    "tutorial": false,
+    "maxRaidRound": 1,
+    "victory": true,
+    "_id": "51ca11ede657f10000000001"
+  },
+  {
+    "uniqueId": "da232d50-4d4c-4dbe-ad43-40c45390344d",
+    "depth": 1,
+    "currentScrap": 16,
+    "playerHealth": 0,
+    "bestCombo": 9,
+    "timePlayed": 11.3027648925781,
+    "enemiesBeaten": 3,
+    "favoriteModule": {
+      "damage": 90,
+      "cooldown": 2.5,
+      "uses": 4,
+      "modifierTypes": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "modifierRanks": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "moduleType": 0,
+      "rank": 1,
+      "rarity": 0,
+      "tier": 1,
+      "name": "My First Slasher",
+      "powerValue": 0,
+      "id": 11,
+      "stashed": true
+    },
+    "favoriteCount": 1.75,
+    "weaponFavor": {
+      "10": 1.49999988079071,
+      "11": 1.75,
+      "27": 0.5,
+      "52": 0.333333343267441
+    },
+    "raidMode": true,
+    "tutorial": false,
+    "maxRaidRound": 1,
+    "victory": true,
+    "_id": "51ca1372e657f10000000002"
+  },
+  {
+    "uniqueId": "9923ab3a-b8a3-4272-af2b-81b07eb8a7ac",
+    "depth": 6,
+    "currentScrap": 3312,
+    "playerHealth": 0,
+    "bestCombo": 98,
+    "timePlayed": 100.996032714844,
+    "enemiesBeaten": 26,
+    "favoriteModule": {
+      "damage": 539,
+      "cooldown": 8.75,
+      "uses": 1,
+      "modifierTypes": [
+        10,
+        13,
+        13,
+        13
+      ],
+      "modifierRanks": [
+        3,
+        0,
+        0,
+        0
+      ],
+      "moduleType": 9,
+      "rank": 15,
+      "rarity": 2,
+      "tier": 3,
+      "name": "Omnistrike Pulseblast",
+      "powerValue": 450,
+      "id": 1331,
+      "stashed": true
+    },
+    "favoriteCount": 12,
+    "weaponFavor": {
+      "1331": 12,
+      "1332": 2.25,
+      "1333": 7.66666793823242,
+      "1334": 7.39999723434448,
+      "1768": 1
+    },
+    "raidMode": false,
+    "tutorial": false,
+    "maxRaidRound": 0,
+    "victory": true,
+    "_id": "51cf7e16e657f10000000003"
+  },
+  {
+    "uniqueId": "9923ab3a-b8a3-4272-af2b-81b07eb8a7ac",
+    "depth": 15,
+    "currentScrap": 2052,
+    "playerHealth": 0,
+    "bestCombo": 90,
+    "timePlayed": 171.114303588867,
+    "enemiesBeaten": 31,
+    "favoriteModule": {
+      "damage": 711,
+      "cooldown": 10.75,
+      "uses": 2,
+      "modifierTypes": [
+        3,
+        1,
+        0,
+        13
+      ],
+      "modifierRanks": [
+        3,
+        3,
+        2,
+        0
+      ],
+      "moduleType": 9,
+      "rank": 19,
+      "rarity": 3,
+      "tier": 4,
+      "name": "Galvanic Demolisher",
+      "powerValue": 730,
+      "id": 1780,
+      "stashed": true
+    },
+    "favoriteCount": 20,
+    "weaponFavor": {
+      "1331": 19,
+      "1333": 15.6666603088379,
+      "1334": 10.799994468689,
+      "1780": 20
+    },
+    "raidMode": true,
+    "tutorial": false,
+    "maxRaidRound": 10,
+    "victory": true,
+    "_id": "51cf7fa3e657f10000000004"
+  },
+  {
+    "uniqueId": "9923ab3a-b8a3-4272-af2b-81b07eb8a7ac",
+    "depth": 15,
+    "currentScrap": 20699,
+    "playerHealth": 0,
+    "bestCombo": 238,
+    "timePlayed": 1155.50549316406,
+    "enemiesBeaten": 246,
+    "favoriteModule": {
+      "damage": 711,
+      "cooldown": 10.75,
+      "uses": 2,
+      "modifierTypes": [
+        3,
+        1,
+        0,
+        13
+      ],
+      "modifierRanks": [
+        3,
+        3,
+        2,
+        0
+      ],
+      "moduleType": 9,
+      "rank": 19,
+      "rarity": 3,
+      "tier": 4,
+      "name": "Galvanic Demolisher",
+      "powerValue": 730,
+      "id": 1780,
+      "stashed": true
+    },
+    "favoriteCount": 116,
+    "weaponFavor": {
+      "1331": 91,
+      "1333": 92.6667861938477,
+      "1334": 5.99999856948853,
+      "1780": 116,
+      "1853": 36,
+      "1987": 35.3333435058594,
+      "2052": 16.5,
+      "2118": 0.666666686534882
+    },
+    "raidMode": false,
+    "tutorial": false,
+    "maxRaidRound": 0,
+    "victory": true,
+    "_id": "51d04a78e657f10000000005"
+  },
+  {
+    "uniqueId": "9923ab3a-b8a3-4272-af2b-81b07eb8a7ac",
+    "depth": 10,
+    "currentScrap": 13563,
+    "playerHealth": 0,
+    "bestCombo": 118,
+    "timePlayed": 457.748718261719,
+    "enemiesBeaten": 225,
+    "favoriteModule": {
+      "damage": 711,
+      "cooldown": 10.75,
+      "uses": 2,
+      "modifierTypes": [
+        3,
+        1,
+        0,
+        13
+      ],
+      "modifierRanks": [
+        3,
+        3,
+        2,
+        0
+      ],
+      "moduleType": 9,
+      "rank": 19,
+      "rarity": 3,
+      "tier": 4,
+      "name": "Galvanic Demolisher",
+      "powerValue": 730,
+      "id": 1780,
+      "stashed": true
+    },
+    "favoriteCount": 36.5,
+    "weaponFavor": {
+      "1780": 36.5,
+      "1829": 27.25,
+      "1987": 25.6666774749756,
+      "2118": 22.3333377838135,
+      "2320": 0.200000002980232
+    },
+    "raidMode": false,
+    "tutorial": false,
+    "maxRaidRound": 0,
+    "victory": true,
+    "_id": "51d04ce1e657f10000000006"
+  },
+  {
+    "uniqueId": "9923ab3a-b8a3-4272-af2b-81b07eb8a7ac",
+    "depth": 12,
+    "currentScrap": 4138,
+    "playerHealth": 0,
+    "bestCombo": 55,
+    "timePlayed": 322.176025390625,
+    "enemiesBeaten": 73,
+    "favoriteModule": {
+      "damage": 711,
+      "cooldown": 10.75,
+      "uses": 2,
+      "modifierTypes": [
+        3,
+        1,
+        0,
+        13
+      ],
+      "modifierRanks": [
+        3,
+        3,
+        2,
+        0
+      ],
+      "moduleType": 9,
+      "rank": 19,
+      "rarity": 3,
+      "tier": 4,
+      "name": "Galvanic Demolisher",
+      "powerValue": 730,
+      "id": 1780,
+      "stashed": true
+    },
+    "favoriteCount": 30,
+    "weaponFavor": {
+      "1780": 30,
+      "1829": 17.75,
+      "1987": 15.9999933242798,
+      "2325": 16.3333263397217,
+      "2414": 3.66666626930237
+    },
+    "raidMode": false,
+    "tutorial": false,
+    "maxRaidRound": 0,
+    "victory": true,
+    "_id": "51d04f10e657f10000000007"
+  },
+  {
+    "uniqueId": "9923ab3a-b8a3-4272-af2b-81b07eb8a7ac",
+    "depth": 1,
+    "currentScrap": 67,
+    "playerHealth": 0,
+    "bestCombo": 6,
+    "timePlayed": 26.400074005127,
+    "enemiesBeaten": 12,
+    "favoriteModule": {
+      "damage": 514,
+      "cooldown": 10.25,
+      "uses": 3,
+      "modifierTypes": [
+        7,
+        5,
+        13,
+        13
+      ],
+      "modifierRanks": [
+        2,
+        1,
+        0,
+        0
+      ],
+      "moduleType": 8,
+      "rank": 12,
+      "rarity": 1,
+      "tier": 3,
+      "name": "Inescapable Meteor",
+      "powerValue": 319,
+      "id": 2428,
+      "stashed": true
+    },
+    "favoriteCount": 2.99999976158142,
+    "weaponFavor": {
+      "1780": 2,
+      "2428": 2.99999976158142
+    },
+    "raidMode": false,
+    "tutorial": false,
+    "maxRaidRound": 0,
+    "victory": true,
+    "_id": "51d0e1e4e657f10000000008"
+  },
+  {
+    "uniqueId": "98f73596-af1e-4018-a7e4-2bdfe6da1915",
+    "depth": 10,
+    "currentScrap": 2573,
+    "playerHealth": 0,
+    "bestCombo": 84,
+    "timePlayed": 92.4065933227539,
+    "enemiesBeaten": 32,
+    "favoriteModule": {
+      "damage": 100,
+      "cooldown": 5,
+      "uses": 3,
+      "modifierTypes": [
+        2,
+        7,
+        5,
+        9
+      ],
+      "modifierRanks": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "moduleType": 9,
+      "rank": 0,
+      "rarity": 0,
+      "tier": 0,
+      "name": "Cryoburn Shockwave",
+      "powerValue": 0,
+      "id": 494,
+      "stashed": true
+    },
+    "favoriteCount": 9.66666603088379,
+    "weaponFavor": {
+      "123": 8,
+      "126": 7,
+      "165": 4,
+      "494": 9.66666603088379
+    },
+    "raidMode": true,
+    "tutorial": false,
+    "maxRaidRound": 10,
+    "victory": true,
+    "_id": "51d0e324e657f10000000009"
+  },
+  {
+    "uniqueId": "9923ab3a-b8a3-4272-af2b-81b07eb8a7ac",
+    "depth": 15,
+    "currentScrap": 20551,
+    "playerHealth": 0,
+    "bestCombo": 225,
+    "timePlayed": 1013.37762451172,
+    "enemiesBeaten": 306,
+    "favoriteModule": {
+      "damage": 798,
+      "cooldown": 9.25,
+      "uses": 3,
+      "modifierTypes": [
+        2,
+        13,
+        13,
+        13
+      ],
+      "modifierRanks": [
+        3,
+        0,
+        0,
+        0
+      ],
+      "moduleType": 8,
+      "rank": 18,
+      "rarity": 3,
+      "tier": 4,
+      "name": "Molten Mortar",
+      "powerValue": 630,
+      "id": 2325,
+      "stashed": true
+    },
+    "favoriteCount": 74.6666488647461,
+    "weaponFavor": {
+      "1780": 73.5,
+      "1987": 21.3333358764648,
+      "2325": 74.6666488647461,
+      "2428": 11.9999971389771,
+      "2521": 21.3333358764648,
+      "2540": 1,
+      "2596": 53.5,
+      "2603": 51.5,
+      "2743": 1
+    },
+    "raidMode": false,
+    "tutorial": false,
+    "maxRaidRound": 0,
+    "victory": true,
+    "_id": "51d0e723e657f1000000000a"
+  },
+  {
+    "uniqueId": "9923ab3a-b8a3-4272-af2b-81b07eb8a7ac",
+    "depth": 7,
+    "currentScrap": 2812,
+    "playerHealth": 0,
+    "bestCombo": 55,
+    "timePlayed": 137.576705932617,
+    "enemiesBeaten": 61,
+    "favoriteModule": {
+      "damage": 441,
+      "cooldown": 8.25,
+      "uses": 2,
+      "modifierTypes": [
+        4,
+        2,
+        13,
+        13
+      ],
+      "modifierRanks": [
+        3,
+        3,
+        0,
+        0
+      ],
+      "moduleType": 9,
+      "rank": 20,
+      "rarity": 3,
+      "tier": 4,
+      "name": "Vorpal Pulseblast",
+      "powerValue": 665,
+      "id": 2750,
+      "stashed": true
+    },
+    "favoriteCount": 17.5,
+    "weaponFavor": {
+      "1780": 5,
+      "2325": 0.666666686534882,
+      "2603": 17,
+      "2750": 17.5
+    },
+    "raidMode": false,
+    "tutorial": false,
+    "maxRaidRound": 0,
+    "victory": true,
+    "_id": "51d0e83de657f1000000000b"
+  }
+]

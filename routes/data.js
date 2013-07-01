@@ -14,58 +14,30 @@ connect = function(callback) {
   });
 };
 
-// connect(function(db) {
-//   var collection = db.collection('floor'),
-//       data = [
-//         {
-//           totalRooms: 5,
-//           specialRooms: 1,
-//           combatRooms: 5,
-//           minibossRooms: 1
-//         },
-//         {
-//           totalRooms: 6,
-//           specialRooms: 0,
-//           combatRooms: 6,
-//           minibossRooms: 1
-//         },
-//         {
-//           totalRooms: 7,
-//           specialRooms: 2,
-//           combatRooms: 5,
-//           minibossRooms: 0
-//         },
-//         {
-//           totalRooms: 5,
-//           specialRooms: 0,
-//           combatRooms: 5,
-//           minibossRooms: 1
-//         }
-//       ];
+connect(function(db) {
+  var collection = db.collection('session'),
+      data = require('../session');
 
-//   // data = [];
+  collection.remove(function(err) {
+    // db.close();
 
+    if (err) {
+      throw err;
+    }
 
-//   collection.remove(function(err) {
-//     // db.close();
+    if (!data || !data.length) {
+      db.close();
+      return;
+    }
+    collection.insert(data, {w: 1}, function(err, result) {
+      db.close();
 
-//     if (err) {
-//       throw err;
-//     }
-
-//     if (!data || !data.length) {
-//       db.close();
-//       return;
-//     }
-//     collection.insert(data, {w: 1}, function(err, result) {
-//       db.close();
-
-//       if (err) {
-//         throw err;
-//       }
-//     });
-//   });
-// });
+      if (err) {
+        throw err;
+      }
+    });
+  });
+});
 
 exports.whitelist = [
   'session'
