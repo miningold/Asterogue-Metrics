@@ -14,30 +14,30 @@ connect = function(callback) {
   });
 };
 
-connect(function(db) {
-  var collection = db.collection('session'),
-      data = require('../session');
+// connect(function(db) {
+//   var collection = db.collection('session'),
+//       data = require('../session');
 
-  collection.remove(function(err) {
-    // db.close();
+//   collection.remove(function(err) {
+//     // db.close();
 
-    if (err) {
-      throw err;
-    }
+//     if (err) {
+//       throw err;
+//     }
 
-    if (!data || !data.length) {
-      db.close();
-      return;
-    }
-    collection.insert(data, {w: 1}, function(err, result) {
-      db.close();
+//     if (!data || !data.length) {
+//       db.close();
+//       return;
+//     }
+//     collection.insert(data, {w: 1}, function(err, result) {
+//       db.close();
 
-      if (err) {
-        throw err;
-      }
-    });
-  });
-});
+//       if (err) {
+//         throw err;
+//       }
+//     });
+//   });
+// });
 
 exports.whitelist = [
   'session'
