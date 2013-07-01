@@ -80,8 +80,6 @@ var drawPlayTime = function(data) {
     });
   });
 
-  console.log(data);
-
   chart.domain([min, max]);
 
   var svg = d3.select('body').selectAll('svg')
