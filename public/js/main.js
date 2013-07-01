@@ -13,7 +13,7 @@ $(function() {
 
   $.ajax({
     dataType: "json",
-    url: "/api/session",
+    url: "http://metrics.asterogue.com/api/session",
     success: drawSession
   });
 });
@@ -63,14 +63,14 @@ var drawPlayTime = function(data) {
 
   _.each(data, function(sessions, index) {
 
-    // filter out raid mode
+    // filter out raid and tutorial
     sessions = _.filter(sessions, function(session) {
-      return !session.raidMode;
+      return !(session.raidMode || session.tutorial);
     });
 
     // map sessions to time played
     data[index] = _.map(sessions, function(session) {
-      var t = session.timePlayed / 60.0;
+      var t = session.timePlayed;
 
       // calc global min/max
       if (t > max) max = t;
