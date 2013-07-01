@@ -56,10 +56,8 @@ var drawPlayTime = function(data) {
 
   // filter out small data sets
   data = _.filter(data, function(sessions) {
-    return sessions.length >= 4;
+    return sessions.length >= 2;
   });
-
-
 
   _.each(data, function(sessions, index) {
 
