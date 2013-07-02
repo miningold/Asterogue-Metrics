@@ -181,6 +181,7 @@ d3.box = function() {
           .style("opacity", 1e-6)
           .remove();
 
+      // Update average
       var average = g.selectAll('circle.average')
           .data(averageData ? [averageData] : []);
 
@@ -260,6 +261,36 @@ d3.box = function() {
           .attr("y", x1)
           .style("opacity", 1e-6)
           .remove();
+
+      var averageTick = g.selectAll('text.averageTick')
+          .data(averageData ? [averageData] : []);
+
+      averageTick.enter().append('text')
+          .attr('class', 'averageTick')
+          .attr('dy', '.3em')
+          .attr('dx', -6)
+          .attr('x', 0)
+          .attr('y', x0)
+          .attr("text-anchor", "end")
+          .text(format)
+          .style('opacity', 1e-6)
+        .transition()
+          .duration(duration)
+          .attr('y', x1)
+          .style('opacity', 1);
+
+      averageTick.transition()
+          .duration(duration)
+          .text(format)
+          .attr('y', x1)
+          .style('opacity', 1);
+
+      averageTick.exit().transition()
+          .duration(duration)
+          .attr('y', x1)
+          .style('opacity', 1e-6)
+          .remove();
+
     });
     d3.timer.flush();
   }
