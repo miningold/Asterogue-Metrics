@@ -360,10 +360,15 @@ function boxWhiskers(d) {
 
 function boxQuartiles(d) {
   return [
-    d3.quantile(d, .25),
-    d3.quantile(d, .5),
-    d3.quantile(d, .75)
+    quantileR2(d, .25),
+    quantileR2(d, .5),
+    quantileR2(d, .75)
   ];
+}
+
+function quantileR2(values, p) {
+  var H = (values.length * p);
+  return (values[Math.ceil(H - 1)] + values[Math.floor(H)]) / 2;
 }
 
 })();
