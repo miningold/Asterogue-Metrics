@@ -31,13 +31,13 @@ function I(d) { return d }
 var drawSession = function(data) {
   data = _.groupBy(data, 'uniqueId');
 
-  drawPlayTime(data);
+  drawPlayTimeBox(data);
 
   drawTimeHistogram(data);
   drawAverageTimeHistogram(data);
 };
 
-var drawPlayTime = function(data) {
+var drawPlayTimeBox = function(data) {
   if (!data) return;
 
   var margin = {top: 10, right: 50, bottom: 20, left: 50},
@@ -62,15 +62,22 @@ var drawPlayTime = function(data) {
     return sessions.length >= 2;
   });
 
+  var allSessions = [];
+
   _.each(data, function(sessions, index) {
 
     // filter out raid and tutorial
     sessions = _.filter(sessions, function(session) {
       return !(session.raidMode || session.tutorial);
     });
+
+    var label;
+
     // map sessions to time played
     data[index] = _.map(sessions, function(session) {
       var t = session.timePlayed;
+
+      label = session.uniqueId;
 
       // calc global min/max
       if (t > max) max = t;
@@ -79,11 +86,24 @@ var drawPlayTime = function(data) {
       return t;
     });
 
+    allSessions = allSessions.concat(data[index]);
+
+    // data[index].label = label;
+
     data[index].average = _.reduce(sessions, function(memo, session) {
       return memo + session.timePlayed;
     }, 0) / sessions.length;
 
   });
+
+  var overallAvg = _.reduce(allSessions, function(memo, time) {
+    return memo + time;
+  }, 0) / allSessions.length;
+
+  data = [allSessions].concat(data);
+
+  data[0].label = "overall";
+  data[0].average = overallAvg;
 
   chart.domain([min, max]);
 

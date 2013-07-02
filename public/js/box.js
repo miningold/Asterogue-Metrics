@@ -1,6 +1,8 @@
 // Boxplot code taken from: https://gist.github.com/mbostock/4061502
 (function() {
 
+function I(d) { return d }
+
 d3.box = function() {
   var width = 1,
       height = 1,
@@ -16,6 +18,9 @@ d3.box = function() {
     g.each(function(d, i) {
 
       var averageData = d.average;
+      var label = d.label;
+
+      console.log(label);
 
       d = d.map(value).sort(d3.ascending);
 
@@ -296,6 +301,35 @@ d3.box = function() {
       averageTick.exit().transition()
           .duration(duration)
           .attr('y', x1)
+          .style('opacity', 1e-6)
+          .remove();
+
+      var labelText = g.selectAll('text.label')
+          .data(label ? [label] : []);
+
+      labelText.enter().append('text')
+          .attr('class', 'label')
+          .attr('dy', '.3em')
+          // .attr('dx', 0)
+          .attr('x', width / 2)
+          .attr('y', x0(0))
+          .attr('text-anchor', 'middle')
+          .text(I)
+          .style('opacity', 1)
+        .transition()
+          .duration(duration)
+          .attr('y', x1(0))
+          .style('opacity', 1);
+
+      labelText.transition()
+          .duration(duration)
+          .text(I)
+          .attr('y', x1(0))
+          .style('opacity', 1);
+
+      labelText.exit().transition()
+          .duration(duration)
+          .attr('y', x1(0))
           .style('opacity', 1e-6)
           .remove();
 
