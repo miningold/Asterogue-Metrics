@@ -31,6 +31,18 @@ d3.box = function() {
       var whiskerIndices = whiskers && whiskers.call(this, d, i),
           whiskerData = whiskerIndices && whiskerIndices.map(function(i) { return d[i]; });
 
+      var centerData = whiskerData.map(function(whisker) {
+        if (whisker < quartileData[0] || whisker > quartileData[2]) {
+          return whisker;
+        } else {
+          return null;
+        }
+      });
+
+      whiskerData = whiskerData.filter(function(whisker) {
+        return whisker < quartileData[0] || whisker > quartileData[2];
+      });
+
       // Compute outliers. If no whiskers are specified, all data are "outliers".
       // We compute the outliers as indices, so that we can join across transitions!
       var outlierIndices = whiskerIndices
@@ -57,32 +69,32 @@ d3.box = function() {
 
       // Update center line: the vertical line spanning the whiskers.
       var center = g.selectAll("line.center")
-          .data(whiskerData ? [whiskerData] : []);
+          .data(centerData ? [centerData] : []);
 
       center.enter().insert("line", "rect")
           .attr("class", "center")
           .attr("x1", width / 2)
-          .attr("y1", function(d) { return x0(d[0]); })
+          .attr("y1", function(d) { return x0(d[0] ? d[0] : quartileData[0]); })
           .attr("x2", width / 2)
-          .attr("y2", function(d) { return x0(d[1]); })
+          .attr("y2", function(d) { return x0(d[1] ? d[1] : quartileData[2]); })
           .style("opacity", 1e-6)
         .transition()
           .duration(duration)
           .style("opacity", 1)
-          .attr("y1", function(d) { return x1(d[0]); })
-          .attr("y2", function(d) { return x1(d[1]); });
+          .attr("y1", function(d) { return x1(d[0] ? d[0] : quartileData[0]); })
+          .attr("y2", function(d) { return x1(d[1] ? d[1] : quartileData[2]); });
 
       center.transition()
           .duration(duration)
           .style("opacity", 1)
-          .attr("y1", function(d) { return x1(d[0]); })
-          .attr("y2", function(d) { return x1(d[1]); });
+          .attr("y1", function(d) { return x1(d[0] ? d[0] : quartileData[0]); })
+          .attr("y2", function(d) { return x1(d[1] ? d[1] : quartileData[2]); });
 
       center.exit().transition()
           .duration(duration)
           .style("opacity", 1e-6)
-          .attr("y1", function(d) { return x1(d[0]); })
-          .attr("y2", function(d) { return x1(d[1]); })
+          .attr("y1", function(d) { return x1(d[0] ? d[0] : quartileData[0]); })
+          .attr("y2", function(d) { return x1(d[1] ? d[1] : quartileData[2]); })
           .remove();
 
       // Update innerquartile box.
