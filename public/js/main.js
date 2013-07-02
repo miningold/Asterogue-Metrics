@@ -65,7 +65,6 @@ var drawPlayTime = function(data) {
     sessions = _.filter(sessions, function(session) {
       return !(session.raidMode || session.tutorial);
     });
-
     // map sessions to time played
     data[index] = _.map(sessions, function(session) {
       var t = session.timePlayed;
@@ -76,6 +75,11 @@ var drawPlayTime = function(data) {
 
       return t;
     });
+
+    data[index].average = _.reduce(sessions, function(memo, session) {
+      return memo + session.timePlayed;
+    }, 0) / sessions.length;
+
   });
 
   chart.domain([min, max]);

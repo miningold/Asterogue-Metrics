@@ -22,3 +22,8 @@ body {
   fill: none;
   stroke: #ccc;
 }
+
+.box .average {
+  fill: #f00;
+  stroke: #f00;
+}

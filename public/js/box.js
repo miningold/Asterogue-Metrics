@@ -14,7 +14,11 @@ d3.box = function() {
   // For each small multiple…
   function box(g) {
     g.each(function(d, i) {
+
+      var averageData = d.average;
+
       d = d.map(value).sort(d3.ascending);
+
       var g = d3.select(this),
           n = d.length,
           min = d[0],
@@ -175,6 +179,31 @@ d3.box = function() {
           .duration(duration)
           .attr("cy", function(i) { return x1(d[i]); })
           .style("opacity", 1e-6)
+          .remove();
+
+      var average = g.selectAll('circle.average')
+          .data(averageData ? [averageData] : []);
+
+      average.enter().insert('circle', 'text')
+          .attr('class', 'average')
+          .attr('r', 5)
+          .attr('cx', width / 2)
+          .attr('cy', x0)
+          .style("opacity", 1e-6)
+        .transition()
+          .duration(duration)
+          .attr('cy', x1)
+          .style('opacity', 1);
+
+      average.transition()
+          .duration(duration)
+          .attr('cy', x1)
+          .style('opacity', 1);
+
+      average.exit().transition()
+          .duration(duration)
+          .attr('cy', x1)
+          .style('opacity', 1e-6)
           .remove();
 
       // Compute the tick format.
