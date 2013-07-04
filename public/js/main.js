@@ -33,8 +33,8 @@ var drawSession = function(data) {
 
   drawPlayTimeBox(data);
 
-  drawTimeHistogram(data);
-  drawAverageTimeHistogram(data);
+  var max = drawTimeHistogram(data);
+  drawAverageTimeHistogram(data, max);
 };
 
 var drawPlayTimeBox = function(data) {
@@ -142,43 +142,25 @@ var drawTimeHistogram = function(data) {
       .width(width)
       .height(height);
 
-  // map from object to array
-  data = _.map(data, function(value, key) {
-    return value;
-  });
+  var values = _(data)
+    .values() // convert object to array of values
+    .flatten() // concat arrays
+    .reduce(function(memo, session) {
+      // filter raid and tutorial
+      if (!(session.raidMode || session.tutorial)) {
 
-  var values = [];
+        // map to timePlayed
+        var t = session.timePlayed;
 
-  _.each(data, function(sessions, index) {
-
-    // filter out raid and tutorial
-    sessions = _.filter(sessions, function(session) {
-      return !(session.raidMode || session.tutorial);
-    });
-
-    sessions = _.map(sessions, function(session) {
-      var v = session.timePlayed;
-
-      if (v > max) {
-        max = v;
+        // find max
+        if (t > max) {
+          max = t;
+        }
+        memo.push(t);
       }
-
-      return v;
-    });
-
-    values = values.concat(sessions);
-
-    // calculate average
-    // values[index] = _.reduce(sessions, function(memo, session) {
-    //   return memo + session.timePlayed;
-    // }, 0) / sessions.length;
-
-    // // record max
-    // if (values[index] > max) {
-    //   max = values[index];
-    // }
-  });
-
+      return memo;
+    }, []);
+    // no .value() needed because of reduce()
 
   // find nearest multiple of 60 greater than max
   max = Math.ceil(max / 60) * 60;
@@ -193,11 +175,12 @@ var drawTimeHistogram = function(data) {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   svg.call(chart);
+
+  // return max for use in other charts
+  return max;
 };
 
-var drawAverageTimeHistogram = function(data) {
-  var max = 0;
-
+var drawAverageTimeHistogram = function(data, max) {
   var margin = {top: 10, right: 30, bottom: 30, left: 30},
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
@@ -206,31 +189,22 @@ var drawAverageTimeHistogram = function(data) {
       .width(width)
       .height(height);
 
-  // map from object to array
-  data = _.map(data, function(value, key) {
-    return value;
-  });
+  data = _(data)
+    .values() // convert object to array of values
+    .map(function(sessions, index) {
 
-  _.each(data, function(sessions, index) {
+      // filter out raid and tutorial
+      // must be seperate from reduce because sessions.length is a factor
+      sessions = _.filter(sessions, function(session) {
+        return !(session.raidMode || session.tutorial);
+      });
 
-    // filter out raid and tutorial
-    sessions = _.filter(sessions, function(session) {
-      return !(session.raidMode || session.tutorial);
-    });
-
-    // calculate average
-    data[index] = _.reduce(sessions, function(memo, session) {
-      return memo + session.timePlayed;
-    }, 0) / sessions.length;
-
-    // // record max
-    if (data[index] > max) {
-      max = data[index];
-    }
-  });
-
-  // find nearest multiple of 60 greater than max
-  max = Math.ceil(max / 60) * 60;
+      // calculate average
+      return _.reduce(sessions, function(memo, session) {
+        return memo + session.timePlayed;
+      }, 0) / sessions.length;
+    })
+    .value(); // unwrap values
 
   chart.domain([0, max])
       .data(data);
