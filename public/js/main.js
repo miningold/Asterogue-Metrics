@@ -71,13 +71,13 @@ var drawPlayTimeBox = function(data) {
       return !(session.raidMode || session.tutorial);
     });
 
-    var label;
+    var title;
 
     // map sessions to time played
     data[index] = _.map(sessions, function(session) {
       var t = session.timePlayed;
 
-      label = session.uniqueId;
+      title = session.uniqueId;
 
       // calc global min/max
       if (t > max) max = t;
@@ -88,7 +88,7 @@ var drawPlayTimeBox = function(data) {
 
     allSessions = allSessions.concat(data[index]);
 
-    // data[index].label = label;
+    data[index].title = title;
 
     data[index].average = _.reduce(sessions, function(memo, session) {
       return memo + session.timePlayed;
@@ -102,7 +102,7 @@ var drawPlayTimeBox = function(data) {
 
   data = [allSessions].concat(data);
 
-  data[0].label = "overall";
+  data[0].label = data[0].title = "overall";
   data[0].average = overallAvg;
 
   chart.domain([min, max]);
@@ -112,10 +112,17 @@ var drawPlayTimeBox = function(data) {
     .enter().append('svg')
       .attr('class', 'box')
       .attr('width', width + margin.left + margin.right)
-      .attr('height', height + margin.top + margin.bottom)
-    .append('g')
-      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
-      .call(chart);
+      .attr('height', height + margin.top + margin.bottom);
+
+  var g = svg.append('g')
+      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+  g.append('title')
+      .text(ƒ('title'));
+
+  g.call(chart);
+
+
 };
 
 var iqr = function(k) {
